@@ -2,12 +2,15 @@
 int N;   // Number of Processes
 int At[100];  //Arrival timr array
 int Bt[100];   //Burst Time Array
-int Awt,Att;   //Average wating time and average turn around time
+float Awt,Att;   //Average wating time and average turn around time
 void inputData();
 void calculate();
+void outputData();
 /// MAin Function
 int main(){
-    printf("%d %d",Att,Awt);
+    inputData();
+    calculate();
+    outputData();
     return 0;
 }
 
@@ -15,9 +18,9 @@ void inputData(){
     printf("Enter the NUmber of processes ");
     scanf("%d",&N);
     for(int i=1;i<=N;i++){
-        printf("Enter the Arrival Time of Process P%d",i);
+        printf("Enter the Arrival Time of Process P%d ",i);
         scanf("%d",&At[i]);
-        printf("Enter the Burst Time of Process P%d",i);
+        printf("Enter the Burst Time of Process P%d ",i);
         scanf("%d",&Bt[i]);
     }
 }
@@ -33,4 +36,9 @@ void calculate(){
     }
     Att = Ttt/N;
     Awt = Twt/N;
+}
+
+void outputData(){
+    printf("Average Wating Time is %f ",Awt);
+    printf("\nAverage Turn Around Time is %f ", Att);
 }
