@@ -18,17 +18,28 @@ int main(){
     return 0;
 }
 
-/*void inputData(){
+void inputData(){
     printf("Enter the NUmber of processes ");
     scanf("%d",&N);
-    for(int i=1;i<=N;i++){
+    if(TypeOfAlgo ==1){
+    for(int i=1;i<=N;i++){                                     // For FCFS
         printf("Enter the Arrival Time of Process P%d ",i);
         scanf("%d",&At[i]);
         printf("Enter the Burst Time of Process P%d ",i);
         scanf("%d",&Bt[i]);
+      }
+    }
+    else if(TypeOfAlgo == 2){                                   // for SJF
+
+    }
+    else {                                                      // for RR
+         for(int i=1;i<=N;i++){
+        printf("Enter the Burst Time of Process P%d ",i);
+        scanf("%d",&Bt[i]);
+      }
     }
 }
-
+/*
 
 void calculateFCFS(){
     int Ttt=0,Twt=0; //Total turnaround and wating time
@@ -52,7 +63,7 @@ void selectAlgo(){
     printf("Enter the type of Algorithm ");
     printf("Type 1 for FCFS\nType 2 for SJF\n Type 3 For Round Robin\n");
     scanf("%d",&TypeOfAlgo);
-    if(TypeOfAlgo != 1||2||3){
+    if(!(TypeOfAlgo == 1 || TypeOfAlgo == 2 || TypeOfAlgo == 3)){
         printf("Select proper Algorithm\n");
         selectAlgo();
     }
